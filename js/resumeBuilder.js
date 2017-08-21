@@ -137,7 +137,7 @@ work.display = function() {
 
 	}
 
-}
+};
 
 work.display();
 
@@ -154,7 +154,7 @@ projects.display = function() {
 			$(".project-entry:last").append(formattedProjectDates);
 			$(".project-entry:last").append(formattedProjectDescription);
 
-			for(img in projects.projects[i].images) {
+			for(var img in projects.projects[i].images) {
 				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[img]);
 				$(".project-entry:last").append(formattedProjectImage);
 			}
@@ -162,7 +162,7 @@ projects.display = function() {
 
 		}
 	}
-}
+};
 
 projects.display();
 
@@ -200,7 +200,7 @@ education.display = function() {
 		}
 
 	}
-}
+};
 
 education.display();
 
