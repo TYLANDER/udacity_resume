@@ -22,9 +22,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
 
-  <!-- Load the page styles. -->
-  <link href="css/style.css" rel="stylesheet">
-
 
 
   <!--
@@ -35,8 +32,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-  <div id="main">
-    Hello world!   <!-- You'll be deleting this line in the course -->
+<div id="main">
 
     <!--
     Everything from here to the <script> tag below is the skeleton of your
@@ -86,19 +82,23 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   the DOM. jQuery is fast and easy to use, but it doesn't do anything
   you can't accomplish with vanilla (regular) JavaScript.
   -->
-  <script src="js/jQuery.js"></script>
 
-  <!-- More on helper.js in the class -->
-  <script src="js/helper.js"></script>
 
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
   writing. In resumeBuilder.js, you'll be writing code that builds the resume
   dynamically when this website, index.html, is opened.
   -->
+
+
+  <!-- Load the page styles. -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <script src="js/jQuery.js"></script>
+
+  <!-- More on helper.js in the class -->
+  <script src="js/helper.js"></script>
   <script src="js/resumeBuilder.js"></script>
-
-
   <!--
   These scripts are written in JavaScript. You'll be breaking them down as part of
   a quiz. Essentially, the next few lines are checking to see if you have not
@@ -106,7 +106,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   of the resume, then that part of the resume does not show up. More on this in the
   course.
   -->
-
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBcSw4OqDJwK3RvXiflcNWgrE0pS8XTIGI"></script>
   <script>
     // Notice how all of a sudden there's JavaScript inside this HTML
     // document? You can write JavaScript between <script> tags. At the end of your
