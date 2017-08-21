@@ -98,15 +98,15 @@ $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 $("#header").append(formattedBioPic);
 $("#header").append(formattedWelcomeMsg);
-
-if (bio.skills.length > 0) {
-  $('#header').append(HTMLskillsStart);
+$('#header').append(HTMLskillsStart);
 
   for (var i = 0, len = bio.skills.length; i < len; i++) {
     var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
-    $('#skills').push(formattedSkills);
+    $('#header').append(formattedSkills);
   }
-}
+
+
+
 
 for(i in formattedContactInfo) {
 	$("#topContacts").append(formattedContactInfo[i]);
@@ -114,7 +114,7 @@ for(i in formattedContactInfo) {
 }
 
 
-function displayWork() {
+work.display = function() {
 
 	if(work.jobs.length > 0) {
 
@@ -139,7 +139,7 @@ function displayWork() {
 
 }
 
-displayWork();
+work.display();
 
 projects.display = function() {
 	if(projects.projects.length > 0) {
