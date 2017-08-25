@@ -13,7 +13,7 @@ var DATA = "%data%";
     "twitter": "@tylerschmidt",
     "location": "San Francisco"
     },
-    "picture": "images/Tyler_Profile_1_thailand.jpg",
+    "biopic": "images/Tyler_Profile_1_thailand.jpg",
     "welcomeMessage": "Hi, welcome to my personal space.",
     "skills": ["design", "code", "fully functional brain", "good advice"]
 };
@@ -24,14 +24,14 @@ var work = {
     "employer": "Pylon",
     "title": "Design Founder",
     "location": "San Francisco, California",
-    "datesWorked": "July 2015 - Present",
+    "dates": "July 2015 - Present",
     "description": "Founder of Pylon Design Consultancy - a distributed studio model"
   },
     {
     "employer": "AKQA",
     "title": "Sr. User Experience Designer",
     "location": "San Francisco, California",
-    "datesWorked": "August 2013 - July 2015",
+    "dates": "August 2013 - July 2015",
     "description": "Worked on omnichannel experiences for AAA Brands like Activision and Levis."
     }
   ]
@@ -59,16 +59,16 @@ var education = {
   "schools": [
     {
       "name": "Johns Hopkins",
-      "datesAttended": "2005-2009",
-      "city": "Baltimore, MD",
+      "location": "Baltimore, MD",
       "degree": "BA",
-      "major": ["Philosophy", "Economics"]
+      "dates": "2005-2009",
+      "majors": ["Philosophy", "Economics"]
     },
     {
       "name": "VCU Brandcenter",
-      "city": "Richmond, VA",
+      "location": "Richmond, VA",
       "degree": "Masters of Science",
-      "major": ["User Experience Design"],
+      "majors": ["User Experience Design"],
       "dates": "2009-2011"
     }
   ],
@@ -82,6 +82,7 @@ var education = {
   ]
 };
 
+bio.display = function() {
 var formattedName = HTMLheaderName.replace(DATA, bio.name);
 var formattedRole = HTMLheaderRole.replace(DATA, bio.role);
 var formattedBioPic = HTMLbioPic.replace(DATA, bio.picture);
@@ -100,19 +101,18 @@ $("#header").append(formattedBioPic);
 $("#header").append(formattedWelcomeMsg);
 $('#header').append(HTMLskillsStart);
 
-  for (var i = 0, len = bio.skills.length; i < len; i++) {
+  for (var i = 0; i < bio.skills.length;  i++) {
     var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
-    $('#header').append(formattedSkills);
+    $("#skills").append(formattedSkills);
   }
 
-
-
-
-for(i in formattedContactInfo) {
-	$("#topContacts").append(formattedContactInfo[i]);
-	$("#footerContacts").append(formattedContactInfo[i]);
+  for(var i = 0; i < formattedContactInfo.length; i++) {
+  	$("#topContacts").append(formattedContactInfo[i]);
+  	$("#footerContacts").append(formattedContactInfo[i]);
+  }
 }
 
+bio.display();
 
 work.display = function() {
 
@@ -120,7 +120,7 @@ work.display = function() {
 
 		$("#workExperience").append(HTMLworkStart);
 
-		for(i in work.jobs) {
+		for(var i = 0; i < work.jobs.length; i++){
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
 			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
 			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
@@ -133,17 +133,15 @@ work.display = function() {
 			$(".work-entry:last").append(formattedWorkLocation);
 			$(".work-entry:last").append(formattedDatesWorked);
 			$(".work-entry:last").append(formattedWorkDescription);
-		}
-
-	}
-
+    }
+}
 };
 
 work.display();
 
 projects.display = function() {
 	if(projects.projects.length > 0) {
-		for(i in projects.projects) {
+		for(var i = 0; i < projects.projects.length; i++ ) {
 			$("#projects").append(HTMLprojectStart);
 
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("#", projects.projects[i].url);
@@ -154,12 +152,10 @@ projects.display = function() {
 			$(".project-entry:last").append(formattedProjectDates);
 			$(".project-entry:last").append(formattedProjectDescription);
 
-			for(var img in projects.projects[i].images) {
-				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[img]);
+			for(i = 0; i < projects.projects[i].images.length; i++) {
+				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[img] );
 				$(".project-entry:last").append(formattedProjectImage);
 			}
-
-
 		}
 	}
 };
@@ -169,7 +165,7 @@ projects.display();
 
 education.display = function() {
 	if(education.schools.length > 0 || education.onlineCourses.length > 0) {
-		for(i in education.schools) {
+		for(var i = 0; i < education.schools.length; i++) {
 			$("#education").append(HTMLschoolStart);
 
 			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name).replace("#", education.schools[i].url);
@@ -186,7 +182,7 @@ education.display = function() {
 
 		if(education.onlineCourses.length > 0) {
 			$("#education").append(HTMLonlineClasses);
-			for(i in education.onlineCourses) {
+			for(var i = 0; i < education.onlineCourses.length; i++) {
 				$("#education").append(HTMLschoolStart);
 				var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
 				var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
