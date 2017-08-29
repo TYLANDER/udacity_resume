@@ -42,7 +42,7 @@ h2 {
 h3 {
   font-style: regular;
   font-size: 20px;
-  color: #000;
+  color: #333;
   line-height: 22px;
 }
 
@@ -95,7 +95,7 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #4a4a4a;
+  color: #999;
   line-height: 28px;
 }
 
@@ -114,7 +114,7 @@ a {
 }
 
 .white-text {
-  color:#eeeeee;
+  color:#999;
 }
 
 .gray {
@@ -124,12 +124,12 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #f3f3f3;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #eeeeee;
+  background-color: #f3f3f3;
 }
 
 .flex-box {
