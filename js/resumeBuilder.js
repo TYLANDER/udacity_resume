@@ -106,11 +106,11 @@ $('#header').append(HTMLskillsStart);
     $("#skills").append(formattedSkills);
   }
 
-  for(var i = 0; i < formattedContactInfo.length; i++) {
-  	$("#topContacts").append(formattedContactInfo[i]);
-  	$("#footerContacts").append(formattedContactInfo[i]);
+  for(var u = 0; u < formattedContactInfo.length; u++) {
+    $("#topContacts").append(formattedContactInfo[u]);
+  	$("#footerContacts").append(formattedContactInfo[u]);
   }
-}
+};
 
 bio.display();
 
@@ -182,7 +182,7 @@ education.display = function() {
 
 		if(education.onlineCourses.length > 0) {
 			$("#education").append(HTMLonlineClasses);
-			for(var i = 0; i < education.onlineCourses.length; i++) {
+			for(var u = 0; u < education.onlineCourses.length; u++) {
 				$("#education").append(HTMLschoolStart);
 				var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
 				var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
