@@ -1,8 +1,14 @@
 /*
-This is empty on purpose! Your code to build the resume will go here.
+This is my resume, first stable build!
+ */
+/*
+This is the Data variable i use to route data to and from the helper.js file.
  */
 var DATA = "%data%";
 
+/*
+These are my resume data objects.
+*/
 var bio = {
     "name": "Tyler Schmidt",
     "role": "User Experience Designer",
@@ -77,39 +83,47 @@ var education = {
     }]
 };
 
+/*
+These are the display functions. They pull data from the objects above, and render it in the DOM on index.html by referencing the helper.js file.
+*/
+
 bio.display = function() {
     var formattedName = HTMLheaderName.replace(DATA, bio.name);
     var formattedRole = HTMLheaderRole.replace(DATA, bio.role);
     var formattedBioPic = HTMLbioPic.replace(DATA, bio.biopic);
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace(DATA, bio.welcomeMessage);
+    var formattedMobile = HTMLmobile.replace(DATA, bio.contacts.mobile);
+    var formattedEmail = HTMLmobile.replace(DATA, bio.contacts.email);
+    var formattedGithub = HTMLmobile.replace(DATA, bio.contacts.github);
+    var formattedLocation = HTMLmobile.replace(DATA, bio.contacts.location);
 
     var formattedContactInfo = [];
+    formattedContactInfo.push(HTMLmobile.replace(DATA, bio.contacts.mobile));
     formattedContactInfo.push(HTMLemail.replace(DATA, bio.contacts.email));
     formattedContactInfo.push(HTMLgithub.replace(DATA, bio.contacts.github));
     formattedContactInfo.push(HTMLtwitter.replace(DATA, bio.contacts.twitter));
     formattedContactInfo.push(HTMLlocation.replace(DATA, bio.contacts.location));
 
-
-    $("#header").prepend(formattedRole);
-    $("#header").prepend(formattedName);
-    $("#header").append(formattedBioPic);
-    $("#header").append(formattedWelcomeMsg);
-    $('#header').append(HTMLskillsStart);
-
+    $("#header").prepend(formattedRole, formattedName);
+    $("#header").append(formattedWelcomeMsg, formattedBioPic, HTMLskillsStart);
+    $("#topContacts, #footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLocation);
+    /*
+   For Loop for appending the formatted skills. However, they are not rendering.
+    */
     for (var f = 0; f < bio.skills.length; f++) {
         var formattedSkills = HTMLskills.replace("%data%", bio.skills[f]);
         $("#skills").append(formattedSkills);
     }
 
-    for (var u = 0; u < formattedContactInfo.length; u++) {
-        $("#topContacts").append(formattedContactInfo[u]);
-        $("#footerContacts").append(formattedContactInfo[u]);
-    }
+
 };
 
 bio.display();
 
 work.display = function() {
+    /*
+These display functions use if statements to render data only 'if' there is data to render. More stable than the bio.display funciton.
+  */
 
     if (work.jobs.length > 0) {
 
@@ -119,7 +133,7 @@ work.display = function() {
             var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
             var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
             var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
-            var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
+            var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[i].dates);
             var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
 
             var formattedEmployerWorkTitle = formattedEmployer + formattedWorkTitle;
@@ -140,7 +154,7 @@ projects.display = function() {
             $("#projects").append(HTMLprojectStart);
 
             var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("#", projects.projects[i].url);
-            var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].datesWorked);
+            var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
             var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
 
             $(".project-entry:last").append(formattedProjectTitle);
@@ -195,12 +209,15 @@ education.display = function() {
 
 education.display();
 
-/**
- * Skills Chart
+/*
+Map call is here.
  */
 
 $("#mapDiv").append(googleMap);
 
+/*
+Click tracker I left on from earlier lessons. I like click tracking.
+*/
 
 $(document).click(function(loc) {
     var x = loc.pageX;
