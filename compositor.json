@@ -1,0 +1,90 @@
+{
+  "name": "TYLANDER/udacity_resume",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "",
+  "style": {
+    "name": "Brutalist",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BasicHeader",
+      "article": "article/MarkdownArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Consolas, \"Liberation Mono\", Menlo, Courier, monospace",
+    "heading": {},
+    "typeScale": [
+      48,
+      32,
+      20,
+      18,
+      16,
+      14,
+      12
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "fluid": true
+    },
+    "colors": {
+      "text": "#333",
+      "background": "#fff",
+      "primary": "#666",
+      "secondary": "#888",
+      "highlight": "#1f80ff",
+      "muted": "#f6f6f6",
+      "border": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/TYLANDER/udacity_resume",
+          "text": "GitHub"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "udacity_resume",
+      "subhead": "Udacity Nanodegree Resume Code",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "udacity_resume: Udacity Nanodegree Resume Code",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "TYLANDER",
+          "repo": "udacity_resume"
+        }
+      ]
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<h1>Project Details</h1>\n<h2>How do I complete this project?</h2>\n<p>Review the Online Resume <a href=\"https://review.udacity.com/?_ga=1.189245867.12280332.1465333852#!/projects/2962818615/rubric\">Project Rubric</a>.</p>\n<ol>\n<li>In this project you will store your resume data in four javaScript objects according to the schema given below. As is often the case when leveraging an API, the objects must follow the schema exactly. All properties must be present and have real or fake values. The names must match those in the schema (note that object and property names are case-sensitive). All property values should be of the data-type given for the property in the schema. For example if the data-type is given as an array, it is not acceptable to use a string as a value for that property.</li>\n<li>Once you&apos;ve created your javaScript objects, you will write the code needed to display all of the resume data contained within these objects in your resume.</li>\n<li>All of the HTML code needed to build the resume is stored in <strong>js/helper.js</strong> variables. The variable names indicate their function. You will replace substrings in these variable string values such as <strong>%data%</strong> and <strong>#</strong> with the data in your javaScript objects, and append or prepend the formatted result to your resume in the appropriate location.</li>\n<li>If you need a refresher on JavaScript syntax, go to the <a href=\"https://classroom.udacity.com/nanodegrees/nd001/parts/0011345406/modules/296281861575460/lessons/1946788554/concepts/25505685350923\">Javascript Basics</a> course; if you would like to understand how this project is manipulating and traversing the DOM, check out <a href=\"https://classroom.udacity.com/nanodegrees/nd001/parts/0011345406/modules/296281861575461/lessons/3314378535/concepts/33166386820923\">Intro to jQuery</a>.</li>\n<li>Go through the videos and assignments in this course to learn the JavaScript necessary to build your resume.</li>\n<li>Fork the project repo from <a href=\"https://github.com/udacity/frontend-nanodegree-resume\">Github</a> and begin building you resume.</li>\n<li>If you are prompted to do so, you may want to get a <a href=\"https://developers.google.com/maps/documentation/javascript/get-api-key\">Google Maps API key</a>, and include it as the value of the <code>key</code> parameter when loading the Google Maps API in <strong>index.html</strong>:\n<code>&lt;script  src=&quot;http://maps.googleapis.com/maps/api/js?libraries=places&amp;key=[YOUR_API_KEY]&quot;&gt;&lt;/script&gt;</code> You may have some initial concerns with placing your API key directly within your JavaScript source files, but rest assured this is perfectly safe. All client-side code must be downloaded by the client; therefore, the client must download this API key - it is not intended to be secret. Google has security measures in place to ensure your key is not abused. <strong>It is not technically possible to make anything secret on the client-side.</strong></li>\n<li>Check your work against the <a href=\"https://review.udacity.com/?_ga=1.189245867.12280332.1465333852#!/projects/2962818615/rubric\">Project Rubric</a>.</li>\n<li>When you are satisfied with your project, submit it according to the Submission Instructions below.</li>\n</ol>\n<h3>By the end:</h3>\n<p>Your resume will look something like this\n<img src=\"http://i.imgur.com/pWU1Xbl.png\"></p>\n<p>And your repository will include the following files:</p>\n<ul>\n<li><strong>index.html</strong>: The main HTML document. Contains links to all of the CSS and JS resources needed to render the resume, including resumeBuilder.js.</li>\n<li><strong>js/helper.js</strong>: Contains helper code needed to format the resume and build the map. It also has a few function shells for additional functionality. More on helper.js further down.</li>\n<li><strong>js/resumeBuilder.js</strong>: This file is empty. You should write your code here.</li>\n<li><strong>js/jQuery.js</strong>: The jQuery library.</li>\n<li><strong>css/style.css</strong>: Contains all of the CSS needed to style the page.</li>\n<li><strong>README.md</strong>: \nThe GitHub readme file.</li>\n<li>and some images in the images directory.</li>\n</ul>\n<h2>Your starting point...</h2>\n<h3>js/helper.js</h3>\n<p>Within helper.js, you&#x2019;ll find a large collection of strings containing snippets of HTML. Within many snippets, you&#x2019;ll find placeholder data in the form of <code>%data%</code> or <code>%contact%</code>.</p>\n<p>Each string has a title that describes how it should be used. For instance, <code>HTMLworkStart</code> should be the first <code>&lt;div&gt;</code> in the Work section of the resume. <code>HTMLschoolLocation</code> contains a <code>%data%</code> placeholder which should be replaced with the location of one of your schools.</p>\n<h3>Your process:</h3>\n<p>The resume has four distinct sections: work, education, projects and a header with biographical information. You&#x2019;ll need to:</p>\n<ol>\n<li><p>Build four JavaScript objects, each one representing a different resume section. The objects that you create (including property names and the data types of their values) need to follow the schema below exactly. All properties should be included and contain a value of the type specified unless the property is marked &apos;optional&apos;. Property values may contain real or fake data. Property names are case-sensitive. Make sure your javaScript objects are formatted correctly using <a href=\"http://jshint.com/\">jshint.com</a>.</p>\n<ul>\n<li><p><code>bio</code> contains:</p>\n<pre>   <span class=\"hljs-keyword\">name</span> : <span class=\"hljs-keyword\">string</span>\n   role : <span class=\"hljs-keyword\">string</span>\n   contacts : an <span class=\"hljs-keyword\">object</span> <span class=\"hljs-keyword\">with</span>\n         mobile: <span class=\"hljs-keyword\">string</span>\n         email: <span class=\"hljs-keyword\">string</span> \n         github: <span class=\"hljs-keyword\">string</span>\n         twitter: <span class=\"hljs-keyword\">string</span> (optional)\n         location: <span class=\"hljs-keyword\">string</span>\n   welcomeMessage: <span class=\"hljs-keyword\">string</span> \n   skills: <span class=\"hljs-keyword\">array</span> <span class=\"hljs-keyword\">of</span> strings\n   biopic: <span class=\"hljs-keyword\">string</span> url\n   display: <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">taking</span> <span class=\"hljs-title\">no</span> <span class=\"hljs-title\">parameters</span></span></pre></li>\n<li><p><code>education</code> contains:</p>\n<pre>   schools:<span class=\"hljs-built_in\"> array </span>of objects with\n        name: string\n        location: string\n        degree: string\n        majors:<span class=\"hljs-built_in\"> array </span>of strings\n        dates: string (works with a hyphen between them)\n        url: string\n   onlineCourses:<span class=\"hljs-built_in\"> array </span>of objects with\n        title: string\n        school: string\n        dates: string (works with a hyphen between them)\n        url: string\n   display: function taking no parameters</pre></li>\n<li><p><code>work</code> contains</p>\n<pre>   job<span class=\"hljs-variable\">s:</span> array of objects with\n        employer: <span class=\"hljs-built_in\">string</span> \n        title: <span class=\"hljs-built_in\">string</span> \n        location: <span class=\"hljs-built_in\">string</span> \n        date<span class=\"hljs-variable\">s:</span> <span class=\"hljs-built_in\">string</span> (Can <span class=\"hljs-keyword\">be</span> <span class=\"hljs-string\">&apos;in progress&apos;</span>)\n        description: <span class=\"hljs-built_in\">string</span> \n   <span class=\"hljs-keyword\">display</span>: <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">taking</span> <span class=\"hljs-title\">no</span> <span class=\"hljs-title\">parameters</span></span></pre></li>\n<li><p><code>projects</code> contains:</p>\n<pre>   projects:<span class=\"hljs-built_in\"> array </span>of objects with\n         title: string \n         dates: string (works with a hyphen between them)\n         description: string\n         images:<span class=\"hljs-built_in\"> array </span>with string urls\n   display: function taking no parameters</pre></li>\n</ul>\n</li>\n<li><p>Iterate through each javaScript object and append its information to index.html in the correct section.</p>\n<ul>\n<li>First off, you&#x2019;ll be using jQuery&#x2019;s <code>selector.append()</code> and <code>selector.prepend()</code> functions to modify index.html. <code>selector.append()</code> makes an element appear at the end of a selected section. <code>selector.prepend()</code> makes an element appear at the beginning of a selected section.<ul>\n<li>Pay close attention to the ids of the <code>&lt;div&gt;</code>s in index.html and the HTML snippets in helper.js. They&#x2019;ll be very useful as jQuery selectors for <code>selector.append()</code> and <code>selector.prepend()</code></li>\n</ul>\n</li>\n<li>You&#x2019;ll also be using the JavaScript method <code>string.replace(old, new)</code> to swap out all the placeholder text (e.g. <code>%data%</code>) for data from your resume JSON objects.</li>\n<li>Here&#x2019;s an example of some code that would add the location of one your companies to the page:<ul>\n<li><code>var formattedLocation = HTMLworkLocation.replace(&quot;%data%&quot;, work.jobs[job].location);</code></li>\n<li><code>$(&quot;.work-entry:last&quot;).append(formattedLocation);</code></li>\n</ul>\n</li>\n<li>Use the mockup at the page of this document as a guide for the order in which you should append elements to the page.</li>\n</ul>\n</li>\n<li>The resume includes an interactive map. Do the following to add it. <ul>\n<li>In resumeBuilder.js, append the googleMap string to <code>&lt;div id=&#x201D;mapDiv&#x201D;&gt;</code>.</li>\n<li>In index.html, uncomment the Google script element: <code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://maps.googleapis.com/maps/api/js?libraries=places&quot;&gt;&lt;/script&gt;</code></li>\n<li>In helper.js, at the bottom of the file, uncomment code to initialize map and set fitBounds.</li>\n</ul>\n</li>\n<li>All of your code for adding elements to the resume should be contained within functions. </li>\n<li>As described in the javaScript object schema, each &apos;display&apos; function should be encapsulated within the javaScript object it displays in the resume. For instance, your &apos;display&apos; function for appending &apos;work&apos; experience data to the resume should be encapsulated within the &apos;work&apos; javaScript object. The &apos;display&apos; function can be encapsulated within the &apos;work&apos; javaScript object definition in the same way other properties are defined there, or it can be encapsulated later in the file using dot notation. For example: <code>work.display =</code></li>\n<li>It&#x2019;s possible to make additional information show up when you click on the pins in the map. Check out line 174 in helper.js and the Google Maps API to get started.</li>\n</ol>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/TYLANDER/udacity_resume",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/TYLANDER",
+          "text": "TYLANDER"
+        }
+      ]
+    }
+  ]
+}
